@@ -1,0 +1,18 @@
+{
+    "name": "palette-pal",
+    "displayName": "Palette Pal",
+    "description": "Create palettes from a single colour in aseprite.",
+    "version": "0.1.0",
+    "author": {"name": "Dabbi Sabbi", "url": "github here"},
+    "categories": ["Scripts"],
+    "contributes": {
+        "scripts": [ 
+            {
+                "path": "./scripts.lua"
+            },
+            {
+                "path": "./ui.lua"
+            }
+        ]
+    }
+}     
