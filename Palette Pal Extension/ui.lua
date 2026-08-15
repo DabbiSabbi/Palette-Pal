@@ -1,4 +1,4 @@
-local scripts = ("complementary/scripts.lua")
+local scripts = ("Palette Pal Extension/scripts.lua")
 
 local dialog = Dialog{
     title = "Palette Pal",

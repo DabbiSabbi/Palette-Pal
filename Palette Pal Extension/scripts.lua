@@ -5,8 +5,8 @@ local function addcommand(id, title, func)
     group = "Palette Pal",
 
     onclick = func
-    end
 }
+end
 
 function InvertFG()
     local colour = {
@@ -42,8 +42,10 @@ function Analogous()
         s = app.fgColor.hsvSaturation,
         v = app.fgColor.hsvValue
     }
-    local hue1 = colour.h + 30
-    local hue2 = colour.h - 30
+    local hue1 = colour
+    local hue2 = colour
+    hue1.h = hue1.h + 30
+    hue2.h = hue2.h - 30
     local palette = Palette(3)
     palette:setcolor(1, colour)
     palette:setcolor(0, hue1)
