@@ -70,11 +70,11 @@ end
 addcommand("AnalogousPalette", "Create Analogous Palette", Analogous)
 
 function Monochromatic()
-    local scale = 0.15
+    local scale = 0.1
     local colour = Color{
-        r = app.fgColor.red,
-        g = app.fgColor.green,
-        b = app.fgColor.blue
+        h = app.fgColor.hsvHue,
+        s = app.fgColor.hsvSaturation,
+        v = app.fgColor.hsvValue
     }
     local palette = Palette(9)
     palette:setColor(4, colour)
@@ -84,26 +84,20 @@ function Monochromatic()
     do
         lscalei = lscalei + 1
         local shade = {
-            r = app.fgColor.red,
-            g = app.fgColor.green,
-            b = app.fgColor.blue
+        h = colour.hsvHue,
+        s = colour.hsvSaturation,
+        v = colour.hsvValue + (scale * lscalei)
         }
-        shade.r = colour.r * ( 1 + (scale * scalei))
-        shade.g = colour.g * ( 1 + (scale * scalei))
-        shade.b = colour.b * ( 1 + (scale * scalei))
         palette:setColor(i, shade)
     end
     for i = 5, 8, 1
     do
         dscalei = dscalei + 1
         local shade = {
-            r = app.fgColor.red,
-            g = app.fgColor.green,
-            b = app.fgColor.blue
+        h = colour.hsvHue,
+        s = colour.hsvSaturation,
+        v = colour.hsvValue - (scale * dscalei)
         }
-        shade.r = colour.r * ( 1 - (scale * scalei))
-        shade.g = colour.g * ( 1 - (scale * scalei))
-        shade.b = colour.b * ( 1 - (scale * scalei))
         palette:setColor(i, shade)
     end
     Sprite:setPalette(palette)
