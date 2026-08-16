@@ -46,13 +46,13 @@ function Analogous()
     }
 
     local hue1 = {
-        h = colour.hsvHue + 30,
+        h = (colour.hsvHue + 30) % 360,
         s = colour.hsvSaturation,
         v = colour.hsvValue
     }
 
     local hue2 = {
-        h = colour.hsvHue - 30,
+        h = (colour.hsvHue - 30) % 360,
         s = colour.hsvSaturation,
         v = colour.hsvValue
     }
@@ -64,7 +64,7 @@ function Analogous()
     palette:setColor(2, hue2)
 
     
-    Sprite:setPalette(palette)
+    app.sprite:setPalette(palette)
 
 end
 addcommand("AnalogousPalette", "Create Analogous Palette", Analogous)
@@ -100,6 +100,100 @@ function Monochromatic()
         }
         palette:setColor(i, shade)
     end
-    Sprite:setPalette(palette)
+    app.sprite:setPalette(palette)
 end
 addcommand("MonochromaticPalette", "Create Monochromatic Palette", Monochromatic)
+
+function Split()
+    local colour = Color{
+        h = app.fgColor.hsvHue,
+        s = app.fgColor.hsvSaturation,
+        v = app.fgColor.hsvValue
+    }
+    local hue1 = {
+        h = (colour.hsvHue + (180 + 30)) % 360,
+        s = colour.hsvSaturation,
+        v = colour.hsvValue
+    }
+
+    local hue2 = {
+        h = (colour.hsvHue + (180 - 30)) % 360,
+        s = colour.hsvSaturation,
+        v = colour.hsvValue
+    }
+
+    local palette = Palette(3)
+
+    palette:setColor(0, hue1)
+    palette:setColor(1, colour)
+    palette:setColor(2, hue2)
+    app.sprite:setPalette(palette)
+end
+
+addcommand("SplitPalette", "Create Split Complementary Palette", Split)
+
+function Triadic()
+    local colour = Color{
+        h = app.fgColor.hsvHue,
+        s = app.fgColor.hsvSaturation,
+        v = app.fgColor.hsvValue
+    }
+    local hue1 = {
+        h = (colour.hsvHue + 120) % 360,
+        s = colour.hsvSaturation,
+        v = colour.hsvValue
+    }
+
+    local hue2 = {
+        h = (colour.hsvHue - 120) % 360,
+        s = colour.hsvSaturation,
+        v = colour.hsvValue
+    }
+
+    local palette = Palette(3)
+
+    palette:setColor(0, hue1)
+    palette:setColor(1, colour)
+    palette:setColor(2, hue2)
+    app.sprite:setPalette(palette)
+end
+
+addcommand("TriadicPalette", "Create Triadic Palette", Triadic)
+
+function Quadratic()
+    local colour = Color{
+        h = app.fgColor.hsvHue,
+        s = app.fgColor.hsvSaturation,
+        v = app.fgColor.hsvValue
+    }
+    print("Debug #1")
+    local hue1 = {
+        h = (colour.hsvHue - 90) % 360,
+        s = colour.hsvSaturation,
+        v = colour.hsvValue
+    }
+    print("Debug #2")
+    local hue2 = {
+        h = (colour.hsvHue + 90) % 360,
+        s = colour.hsvSaturation,
+        v = colour.hsvValue
+    }
+    
+        local hue3 = {
+        h = (colour.hsvHue + 180) % 360,
+        s = colour.hsvSaturation,
+        v = colour.hsvValue
+    }
+    print("Debug #3")
+    local palette = Palette(4)
+    print("Debug #4")
+    palette:setColor(0, hue1)
+    palette:setColor(1, colour)
+    palette:setColor(2, hue2)
+    palette:setColor(3, hue3)
+    print("Debug #5")
+    app.sprite:setPalette(palette)
+    print("Debug #6")
+end
+
+addcommand("QuadraticPalette", "Create Quadratic Palette", Quadratic)

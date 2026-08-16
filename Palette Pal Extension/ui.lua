@@ -20,6 +20,12 @@ dialog:newrow{}
 addbutton("AnalogousPalette", "Create Analogous Palette", Analogous)
 dialog:newrow{}
 addbutton("MonochromaticPalette", "Create Monochromatic Palette", Monochromatic)
+dialog:newrow{}
+addbutton("SplitPalette", "Create Split Complementary Palette", Split)
+dialog:newrow{}
+addbutton("TriadicPalette", "Create Triadic Palette", Triadic)
+dialog:newrow{}
+addbutton("QuadraticPalette", "Create Quadratic Palette", Quadratic)
 
 plugin:newCommand{
     id = "PalettePalDialog",
