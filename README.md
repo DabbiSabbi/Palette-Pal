@@ -24,4 +24,5 @@ All the options in the menu can also be used with shortcuts, all shortcuts from 
 
 ## Extra
 [Itch.io](https://dabbisabbi.itch.io/palette-pal)
+
 This was made for [Hack Club Wrangler](https://wrangler.hackclub.com)
