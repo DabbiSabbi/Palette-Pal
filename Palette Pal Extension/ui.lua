@@ -1,4 +1,4 @@
-local scripts = ("Palette Pal Extension/scripts.lua")
+local scripts = dofile(plugin.path .. "/scripts.lua")
 
 local dialog = Dialog{
     title = "Palette Pal",
@@ -13,12 +13,17 @@ local function addbutton(id, text, script)
         onclick = script
     }
 end
-addbutton("FGInvert", "Invert Foreground", scripts.FGInvert)
-addbutton("BGInvert", "Invert Background", scripts.BGInvert)
-addbutton("AnalogousPalette", "Create Analogous Palette", scripts.Analogous)
+addbutton("FGInvert", "Invert Foreground", InvertFG)
+dialog:newrow{}
+addbutton("BGInvert", "Invert Background", InvertBG)
+dialog:newrow{}
+addbutton("AnalogousPalette", "Create Analogous Palette", Analogous)
+dialog:newrow{}
+addbutton("MonochromaticPalette", "Create Monochromatic Palette", Monochromatic)
+
 plugin:newCommand{
     id = "PalettePalDialog",
-    title = "Open Palette Pal Dialog",
+    title = "Palette Pal: Open Palette Pal Dialog",
     group = "Palette Pal",
 
     onclick = function ()
