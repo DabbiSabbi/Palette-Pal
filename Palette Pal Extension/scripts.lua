@@ -166,13 +166,11 @@ function Quadratic()
         s = app.fgColor.hsvSaturation,
         v = app.fgColor.hsvValue
     }
-    print("Debug #1")
     local hue1 = {
         h = (colour.hsvHue - 90) % 360,
         s = colour.hsvSaturation,
         v = colour.hsvValue
     }
-    print("Debug #2")
     local hue2 = {
         h = (colour.hsvHue + 90) % 360,
         s = colour.hsvSaturation,
@@ -184,16 +182,12 @@ function Quadratic()
         s = colour.hsvSaturation,
         v = colour.hsvValue
     }
-    print("Debug #3")
     local palette = Palette(4)
-    print("Debug #4")
     palette:setColor(0, hue1)
     palette:setColor(1, colour)
     palette:setColor(2, hue2)
     palette:setColor(3, hue3)
-    print("Debug #5")
     app.sprite:setPalette(palette)
-    print("Debug #6")
 end
 
 addcommand("QuadraticPalette", "Create Quadratic Palette", Quadratic)
