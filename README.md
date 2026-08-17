@@ -23,4 +23,6 @@ Enjoy!
 All the options in the menu can also be used with shortcuts, all shortcuts from this extension have "Palette Pal:" at the start. 
 
 ## Extra
+[Itch.io](https://dabbisabbi.itch.io/palette-pal)
+
 This was made for [Hack Club Wrangler](https://wrangler.hackclub.com)
