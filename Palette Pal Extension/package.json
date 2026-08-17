@@ -2,8 +2,8 @@
     "name": "palette-pal",
     "displayName": "Palette Pal",
     "description": "Create palettes from a single colour in aseprite.",
-    "version": "1.0.0",
-    "author": {"name": "Dabbi Sabbi", "url": "github here"},
+    "version": "1.0.2",
+    "author": {"name": "Dabbi Sabbi", "url": "https://github.com/DabbiSabbi/Palette-Pal"},
     "categories": ["Scripts"],
     "contributes": {
         "scripts": [ 
