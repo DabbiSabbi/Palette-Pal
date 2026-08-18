@@ -13,6 +13,7 @@ local function addbutton(id, text, script)
         onclick = script
     }
 end
+
 addbutton("FGInvert", "Invert Foreground", InvertFG)
 dialog:newrow{}
 addbutton("BGInvert", "Invert Background", InvertBG)
@@ -20,6 +21,7 @@ dialog:newrow{}
 addbutton("AnalogousPalette", "Create Analogous Palette", Analogous)
 dialog:newrow{}
 addbutton("MonochromaticPalette", "Create Monochromatic Palette", Monochromatic)
+addbutton("AltMonochromaticPalette", "Create Alternative Monochromatic Palette", Altmonochromatic)
 dialog:newrow{}
 addbutton("SplitPalette", "Create Split Complementary Palette", Split)
 dialog:newrow{}

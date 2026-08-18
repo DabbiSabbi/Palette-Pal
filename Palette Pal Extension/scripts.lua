@@ -69,7 +69,7 @@ function Analogous()
 end
 addcommand("AnalogousPalette", "Create Analogous Palette", Analogous)
 
-function Monochromatic()
+function Altmonochromatic()
     local scale = 0.1
     local colour = Color{
         h = app.fgColor.hsvHue,
@@ -88,7 +88,7 @@ function Monochromatic()
         s = colour.hsvSaturation,
         v = colour.hsvValue + (scale * lscalei)
         }
-        palette:setColor(i, shade)
+        palette:setColor((3-i), shade)
     end
     for i = 5, 8, 1
     do
@@ -99,6 +99,31 @@ function Monochromatic()
         v = colour.hsvValue - (scale * dscalei)
         }
         palette:setColor(i, shade)
+    end
+    app.sprite:setPalette(palette)
+end
+addcommand("AltMonochromaticPalette", "Create Alternative Monochromatic Palette", Altmonochromatic)
+
+--0 10, 1 20, 2 30, 3 40, 4 50, 5 60, 6 70, 7 80, 8 90, 9 100.
+function Monochromatic()
+    local loop = 0
+    local scale = 0.1
+    local colour = Color{
+        h = app.fgColor.hsvHue,
+        s = app.fgColor.hsvSaturation,
+        v = app.fgColor.hsvValue
+    }
+    colour.hsvValue = 1
+    local palette = Palette(11)
+    palette:setColor(0, colour)
+    for i = 9, 0, -1 do
+        loop = loop + 1
+        local shade = {
+            h = colour.hsvHue,
+            s = colour.hsvSaturation,
+            v = colour.hsvValue - scale * loop
+        }
+        palette:setColor(10 - i, shade)
     end
     app.sprite:setPalette(palette)
 end
